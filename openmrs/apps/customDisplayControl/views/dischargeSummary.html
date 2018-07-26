@@ -1,0 +1,72 @@
+<style>
+  h1,h2,h3,h4{line-height:1.1}
+  span{ling-height:1.5}
+  .container{line-height:1.5; font-size:14px;border:1px solid #ccc;padding:15px;margin-bottom:15px;width:90%}
+</style>
+
+<div style="margin:0 15px">
+  <div style="position:absolute;margin-top:5px" >
+    <img src="../images/trishuli-logo.jpg" width="115"/>
+  </div>
+
+  <div class="header" style="position:relative;font-size:140%;">
+    <h3><center>Government of Nepal</center></h3>
+    <h3><center>Ministry of Health and Population</center></h3>
+    <h3><center>Department of Health Services</center></h3>
+    <h1><center><strong>District (Trishuli) Hospital, Nuwakot<strong></center></h1>
+    <br><br>
+  </div>
+
+  <h2 style="font-size:140%;line-height:1.3"><center><u>Patient Discharge Sheet</u></center></h2>
+  <br><br>
+
+  <div class="container">
+    <span style="position:relative;float:left;width:50%;">Name: {{patient.name}}</span>
+    <span style="position:relative;float:left;width:25%">Age: {{patient.age}}/{{patient.gender}}</span> 
+    <span style="position:relative;float:left;width:25%">Bed No.: NA</span>
+    <span style="position:relative;float:left;width:60%">Address: {{patient.address.cityVillage}} - {{patient.address.address1}}, {{patient.address.countyDistrict}}</span>
+    <span style="position:relative;float:left;width:20%">Contact No.:{{patient.phone}}</span>
+    <span style="position:relative;float:left;width:20%">Ward: NA</span>
+    <span style="position:relative;float:left;width:50%">Date of Admission: {{data["Date of Admission"]}}</span>
+    <span style="position:relative;float:left;width:50%">Date of Discharge: {{data["Date of Discharge"]}}</span>
+  </div>
+
+  <div class="container">
+    <strong>Diagnosis:</strong> {{data["Diagnosis"]}}
+  </div>
+
+  <div class="container">
+    <strong>Chief Complaint:</strong> {{data["Chief complaint"]}}
+  </div>
+  
+  <div class="container">
+    <strong>Past History:</strong>{{data["Past Medical and Surgical History"]}}, {{data["History of present illness"]}}
+  </div>
+
+  <div class="container">
+    <strong>On examination:</strong>{{data["General Examination"]}}, {{data["Pertinent System"]}}, {{data["Problem"]}}
+  </div>
+
+  <div class="container">
+    <strong>Treatment:</strong>
+     {{data["Brief hospital course"]}}<br>
+     Treatments Given:
+    <span ng-repeat="tx in treatment">{{tx}}<br></span>
+  </div>
+
+  <div class="container">
+    <strong>Advised:</strong> {{data["Medication on discharged"]}}<br/><span ng-repeat="tx in treatment" ng-if="tx.dateStopped != ''">{{tx}}<br></span>
+  </div>
+
+  <div class="container">
+    <strong>Investigation:</strong><span ng-repeat="inv in investigations">{{inv}}, </span>
+  </div>
+  
+  <div class="container">
+    <strong>Follow-up:</strong> {{data["Followup instructions"]}}
+  </div>
+  <br><br><br>
+  <div class="container" style="font-size:14px;border:none;">
+    Please contact <u>{{data["Name of Doctor for more information"]}}</u> for more information. 
+  </div>
+</div>

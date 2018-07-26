@@ -1,0 +1,322 @@
+{
+    "general": {
+        "title": "General",
+        "displayByDefault": true,
+        "defaultSections": true,
+        "printing": {
+            "title": "District (Trishuli) Hospital",
+            "header": "Visit Summary",
+            "logo": "../images/trishuli-logo.jpg"
+        }
+    },
+    "discharge_summary": {
+        "title": "Discharge Summary",
+        "printing": {
+            "title": "District (Trishuli) Hospital",
+            "header": "Patient Discharge Sheet",
+            "logo": "../images/trishuli-logo.jpg"
+        },
+        "sections": {
+            "patientinformation": {
+                "type": "patientInformation",
+                "config": {
+                    "title": "PatientInformation",
+                    "patientAttributes": [],
+                    "addressFields": [
+                        "cityVillage",
+                        "countyDistrict"
+                    ]
+                },
+                "displayOrder": 0
+            },
+            "diagnosis": {
+                "type": "diagnosis",
+                "config": {
+                    "title": "Diagnoses",
+                    "showCertainty": true,
+                    "showOrder": true,
+                    "showDetailsButton": true
+                },
+                "displayOrder": 1
+            },
+            "conditions": {
+                "type": "conditionsList",
+                "config": {
+                    "title": "Conditions"
+                },
+                "displayOrder": 7
+            },
+            "discharge_notes": {
+                "type": "Discharge Notes",
+                "config": {
+                    "numberOfVisits": 1,
+                    "showDetailsButton": true,
+                    "conceptNames": [
+                        "Discharge Note, Brief Hospital Course",
+                        "Discharge Note, Medications on Discharged",
+                        "Discharge Note, Followup Instructions"
+                    ],
+                    "title":"Discharge Notes"
+                },
+                "displayOrder": 2
+            },
+            "disposition": {
+                "type": "disposition",
+                "config": {
+                    "title": "Dispositions",
+                    "numberOfVisits": 1,
+                    "showDetailsButton": true
+                },
+                "displayOrder": 3
+            },
+            "admissiondetails": {
+                "type": "admissionDetails",
+                "config": {
+                    "showDetailsButton": true,
+                    "title": "Admission Details"
+                },
+                "displayOrder": 4
+            },
+            "investigationresult": {
+                "type": "investigationResult",
+                "config": {
+                    "title": "Lab Investigations",
+                    "showChart": true,
+                    "showTable": true,
+                    "showNormalLabResults": true,
+                    "showCommentsExpanded": true,
+                    "showAccessionNotes": true,
+                    "numberOfVisits": 10
+                },
+                "displayOrder": 5
+            },
+            "treatment": {
+                "type": "treatment",
+                "config": {
+                    "title": "Treatments",
+                    "translationKey": "Treatments",
+                    "showFlowSheet": true,
+                    "showListView": true,
+                    "showOtherActive": false,
+                    "showDetailsButton": true,
+                    "showRoute": true,
+                    "showDrugForm": true
+                },
+                "displayOrder": 6
+            }
+        }
+    },
+    "opd_summary": {
+        "title": "OPD Summary",
+        "printing": {
+            "title": "District (Trishuli) Hospital",
+            "header": "OPD Summary",
+            "logo": "../images/trishuli-logo.jpg",
+		        "showNameAndImage": true
+        },
+        "sections": {
+            "patientinformation": {
+                "type": "patientInformation",
+                "config": {
+                    "title": "PatientInformation",
+                    "patientAttributes": [],
+                    "addressFields": [
+                        "cityVillage",
+                        "countyDistrict"
+                    ]
+                },
+                "displayOrder": 0
+            },
+            "diagnosis": {
+                "type": "diagnosis",
+                "config": {
+                    "title": "Diagnoses",
+                    "showCertainty": true,
+                    "showOrder": true,
+                    "showDetailsButton": true
+                },
+                "displayOrder": 1
+            },
+            "conditions": {
+                "type": "conditionsList",
+                "config": {
+                    "title": "Conditions"
+                },
+                "displayOrder": 6
+            },
+            "observation": {
+                "type": "observation",
+                "title": "Observation",
+                "config": {
+                    "numberOfVisits": 1,
+                    "obsIgnoreList": [
+                        "Patient file",
+                        "Radiology",
+                        "Lab Manager Notes",
+                        "Accession Uuid",
+                        "Impression"
+                    ],
+                    "showDetailsButton": true
+                },
+                "displayOrder": 2
+            },
+            "disposition": {
+                "type": "disposition",
+                "config": {
+                    "title": "Disposition",
+                    "numberOfVisits": 1,
+                    "showDetailsButton": true
+                },
+                "displayOrder": 3
+            },
+            "investigationresult": {
+                "type": "investigationResult",
+                "config": {
+                    "title": "Lab Investigations",
+                    "showChart": true,
+                    "showTable": true,
+                    "showNormalLabResults": true,
+                    "showCommentsExpanded": true,
+                    "showAccessionNotes": true,
+                    "numberOfVisits": 10
+                },
+                "displayOrder": 4
+            },
+            "treatment": {
+                "type": "treatment",
+                "config": {
+                    "translationKey": "Treatments",
+                    "title": "Treatments",
+                    "showFlowSheet": true,
+                    "showListView": true,
+                    "showOtherActive": false,
+                    "showDetailsButton": true,
+                    "showRoute": true,
+                    "showDrugForm": true
+                },
+                "displayOrder": 5
+            }
+        }
+    },
+    "test_summary": {
+        "title": "OPD One Pager",
+        "printing": {
+            "title": "District (Trishuli) Hospital",
+            "header": "OPD One Pager",
+            "logo": "../images/trishuli-logo.jpg",
+                "showNameAndImage": true
+        },
+        "sections": {
+            "patientinformation": {
+                "type": "patientInformation",
+                "config": {
+                    "title": "PatientInformation",
+                    "patientAttributes": [],
+                    "addressFields": [
+                        "cityVillage",
+                        "countyDistrict"
+                    ]
+                },
+                "displayOrder": 0
+            },
+            "diagnosis": {
+                "type": "diagnosis",
+                "config": {
+                    "title": "Diagnoses",
+                    "showCertainty": true,
+                    "showOrder": true,
+                    "showDetailsButton": true
+                },
+                "displayOrder": 1
+            },
+            "observation": {
+                "type": "observation",
+                "title": "Observation",
+                "config": {
+                    "numberOfVisits": 2,
+                    "obsIgnoreList": [
+                        "Patient file",
+                        "Radiology",
+                        "Lab Manager Notes",
+                        "Accession Uuid",
+                        "Impression"
+                    ],
+                    "showDetailsButton": true
+                },
+                "displayOrder": 2
+            },
+            "disposition": {
+                "type": "disposition",
+                "config": {
+                    "title": "Disposition",
+                    "numberOfVisits": 1,
+                    "showDetailsButton": true
+                },
+                "displayOrder": 3
+            },
+            "investigationresult": {
+                "type": "investigationResult",
+                "config": {
+                    "title": "Lab Investigations",
+                    "showChart": true,
+                    "showTable": false,
+                    "showNormalLabResults": true,
+                    "showCommentsExpanded": true,
+                    "showAccessionNotes": true,
+                    "numberOfVisits": 1
+                },
+                "displayOrder": 4
+            },
+            "treatment": {
+                "type": "treatment",
+                "config": {
+                    "translationKey": "Treatments",
+                    "title": "Treatments",
+                    "showFlowSheet": true,
+                    "showListView": true,
+                    "showOtherActive": false,
+                    "showDetailsButton": true,
+                    "showRoute": true,
+                    "showDrugForm": true
+                },
+                "displayOrder": 5
+            }
+        }   
+    },
+    "birthCertificate": {
+        "title": "Birth Certificate",
+        "printing": {
+            "title": "",
+            "header": "",
+            "logo": ""
+        },
+        "sections": {
+            "Birth Certificate": {
+                "type": "custom",
+                "displayOrder": 1,
+                "config": {
+                    "title": "Trishuli Birth Certificate",
+                    "template": "<birth-certificate></birth-certificate>"
+                }
+            }
+        }
+    },
+    "dischargeSummary": {
+        "title": "Formatted Discharge Summary",
+        "printing": {
+            "title": "District (Trishuli) Hospital",
+            "header": "FormattedPatient Discharge Sheet",
+            "logo": ""
+        },
+        "sections": {
+            "Discharge Summary": {
+                "type": "custom",
+                "displayOrder": 1,
+                "config": {
+                    "title": "Formatted Discharge Summary",
+                    "template": "<discharge-summary></discharge-summary>"
+                }
+            }
+        }
+    }
+}

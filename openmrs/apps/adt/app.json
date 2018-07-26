@@ -1,0 +1,75 @@
+{
+    "id": "bahmni.adt.admission",
+    "extensionPoints": [
+        {
+            "id": "org.bahmni.adt.admit.action",
+            "description": "Bahmni Patient Admission Action"
+        },
+        {
+            "id": "org.bahmni.adt.transfer.action",
+            "description": "Bahmni Patient Transfer Action"
+        },
+        {
+            "id": "org.bahmni.adt.discharge.action",
+            "description": "Bahmni Patient Discharge Action"
+        },
+        {
+            "id": "org.bahmni.patient.search",
+            "description": "Bahmni patient search, lookup Page"
+        }
+    ],
+    "contextModel": [
+        "patientUuid",
+        "encounterUuid",
+        "visitUuid"
+    ],
+    "config": {
+        "onAdmissionForwardTo": "#/patient/{{patientUuid}}/visit/{{visitUuid}}/encounter/{{encounterUuid}}/bed",
+        "onTransferForwardTo": "#/patient/{{patientUuid}}/visit/{{visitUuid}}/encounter/{{encounterUuid}}/bed",
+        "onDischargeForwardTo": "#/patient/search",
+        "defaultVisitType": "General",
+        "dashboard": {
+            "dashboardName": "General",
+            "sections": {
+                "patient_information": {
+                    "title": "Patient Information",
+                    "type": "patientInformation",
+                    "patientAttributes": [],
+                    "displayOrder": 0
+                },
+                "vitals": {
+                    "title": "Vitals",
+                    "type": "vitals",
+                    "isObservation": true,
+                    "dashboardConfig": {
+                        "conceptNames": [
+                            "Vitals"
+                        ],
+                        "numberOfVisits": 2
+                    },
+                    "expandedViewConfig": {
+                        "conceptNames": [
+                            "Nutritional Values"
+                        ],
+                        "numberOfVisits": 2,
+                        "showDetailsButton": true
+                    },
+                    "displayOrder": 1
+                },
+                "admission_details": {
+                    "title": "Admission Details",
+                    "type": "admissionDetails",
+                    "numberOfVisits": 1,
+                    "showDetailsButton": true,
+                    "displayOrder": 2
+                },
+                "disposition": {
+                    "title": "Disposition",
+                    "type": "disposition",
+                    "numberOfVisits": 2,
+                    "displayOrder": 3
+                }
+            }
+        }
+    }
+}
