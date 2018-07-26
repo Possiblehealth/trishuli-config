@@ -1,0 +1,4 @@
+- hosts: bahmni-erp
+  become: yes
+  roles:
+    - { role: erp-connect-batch }

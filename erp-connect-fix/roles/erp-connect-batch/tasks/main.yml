@@ -1,0 +1,3 @@
+- name: Running bahmni-erp-connect migration
+  command: sh /var/www/bahmni_config/erp-connect-fix/resource/run-liquibase.sh
+  when: passive is not defined or passive != 'yes'
