@@ -1,2 +1,2 @@
-# trishuli_config
-Implementation Config for District Trishuli Hospital Nuwakot
+# trishuli-config
+Implementation Configuration for District Trishuli Hospital Nuwakot
