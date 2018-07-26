@@ -1,0 +1,7 @@
+uuid,name,class,datatype,shortname,description,reference-term-code,reference-term-relationship,reference-term-source,synonym.1,answer.1,answer.2,answer.3,answer.4,answer.5
+,"COPD, Exacerbation in Last 12 Months",Misc,Coded,Exacerbation this year,,,,,,Zero,One,Two,Greater than or 3,
+,"COPD, Hospitalizations in Last 12 Months",Misc,Coded,Hospitalizations in the past year,,,,,,Zero,One,Two,Greater than or 3,
+,"COPD, Still Smoking",Misc,Boolean,Is patient still smoking,,,,,,,,,,
+,"COPD, Uses Biomass Fuel For Cooking",Misc,Boolean,Does patient use biomass fuel for cooking,,,,,,,,,,
+,"COPD, Does Patient Take Inhaler as Prescribed",Misc,Boolean,Does patient take inhaler as prescribed ,,,,,,,,,,
+,"COPD, Does Patient Demonstrate Proper Inhaler Technique",Misc,Boolean,Does patient demonstrate proper inhaler technique,,,,,,,,,,
