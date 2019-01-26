@@ -25,6 +25,6 @@ FROM
      RIGHT OUTER JOIN reporting_age_group AS observed_age_group ON
                                                                   DATE(visit.date_stopped) BETWEEN (DATE_ADD(DATE_ADD(person.birthdate, INTERVAL observed_age_group.min_years YEAR), INTERVAL observed_age_group.min_days DAY))
                                                                   AND (DATE_ADD(DATE_ADD(person.birthdate, INTERVAL observed_age_group.max_years YEAR), INTERVAL observed_age_group.max_days DAY))
-   WHERE observed_age_group.report_group_name = 'Clients Served') AS client_visits
+   WHERE observed_age_group.report_group_name = 'Client Service Reports') AS client_visits
 GROUP BY client_visits.age_group
 ORDER BY client_visits.sort_order;

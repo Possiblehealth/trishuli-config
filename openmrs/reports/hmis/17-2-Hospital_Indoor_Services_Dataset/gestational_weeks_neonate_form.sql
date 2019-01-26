@@ -38,13 +38,13 @@ FROM
      on gestation_period_obs.encounter_id = e.encounter_id
           AND gestation_period_obs.concept_id = (SELECT concept_id
                                                  FROM concept_view
-                                                 WHERE concept_full_name = 'Delivery Note-Gestation period')
+                                                 WHERE concept_full_name = 'Delivery Note, Gestation period')
           AND gestation_period_obs.voided = FALSE
    WHERE
    (gestation_period_obs.value_numeric IS NOT NULL) and 
      outcome_of_delivery_obs.concept_id = (SELECT concept_id
                                            FROM concept_view
-                                           WHERE concept_full_name = 'Delivery Note-Outcome of Delivery')
+                                           WHERE concept_full_name = 'Delivery Note, Outcome of Delivery')
      AND DATE(e.encounter_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
      AND outcome_of_delivery_obs.voided = FALSE group by pi.identifier) a  group by a.parity)  simpler_form ON simpler_form.delivery_outcome = birth.type
 GROUP BY birth.type

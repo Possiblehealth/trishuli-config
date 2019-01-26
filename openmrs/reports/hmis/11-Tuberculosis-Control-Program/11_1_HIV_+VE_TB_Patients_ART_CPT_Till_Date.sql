@@ -45,10 +45,11 @@ FROM
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id
         AND cn2.concept_name_type = 'FULLY_SPECIFIED'
+		AND cn2.name = 'Yes'
         AND cn2.voided = 0
     INNER JOIN encounter e ON o1.encounter_id = e.encounter_id
     INNER JOIN visit v1 ON v1.visit_id = e.visit_id
-        AND v1.date_stopped IS NOT NULL) first_concept ON first_concept.question = first_answers.question
+        ) first_concept ON first_concept.question = first_answers.question
         LEFT OUTER JOIN
     person p ON first_concept.person_id = p.person_id
         AND p.gender = gender.gender

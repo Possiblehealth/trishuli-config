@@ -1,42 +1,11 @@
-<style>
-  h1,h2,h3,h4{line-height:1.1}
-  span{ling-height:1.5}
-</style>
-<div style="margin:0 15px">
-<div style="position:absolute;margin-top:5px" >
-  <img src="../images/trishuli-logo.jpg" width="120"/>
-</div>
-
-<div class="header" style="position:relative;font-size:140%;">
-  <h3><center>Government of Nepal</center></h3>
-  <h3><center>Ministry of Health and Population</center></h3>
-  <h3><center>Department of Health Services</center></h3>
-  <h1><center><strong>District (Trishuli) Hospital<strong></center></h1>
-  <h4><center>Nuwakot</center></h4><br><br>
-</div>
-
-<h2 style="font-size:250%;line-height:1.3"><center><u>BIRTH - CERTIFICATE</u></center></h2>
-<br><br><br><br>
-
-<div style="font-size:250%;line-height:1.3">
-  Birth Certificate No.:</br>
-  Patient No.: {{patient.identifier}}
-</div>
-<br><br><br><br>
-
-<p style="line-height:1.5; font-size:250%">
-    This is to certifiy that a live <span style="text-decoration:underline">{{data["Infant gender"]}}</span> child was born to Mrs. <span style="text-decoration:underline">{{patient.name}}</span>, wife of Mr. <span style="text-decoration:underline">{{birthCertificate["Father's Name"]}}</span> of <span style="text-decoration:underline">{{patient.address.cityVillage}}</span> - <span style="text-decoration:underline">
-{{patient.address.address1}}</span>, <span style="text-decoration:underline">{{patient.address.countyDistrict}}</span> on <span style="text-decoration:underline">{{data["Date and time of delivery"]}}</span> (AD) with weight of
- <span style="text-decoration:underline">{{data["Infant weight"]}}</span> (gram) at Trishuli Hospital, Nuwakot, Nepal.
-  </p>
-
-<br><br><br><br><br><br><br><br><br><br><br><br>
-<div style="width:50%;position:relative;float:left;font-size:250%;line-height:1.5">
-..................................<br/>
-SBA Sister's Signature
-</div>
-<div style="width:50%;position:relative;float:left;font-size:250%;line-height:1.5;text-align:right">
-..................................<br/>
-Doctor's Signature
-</div>
+<div>
+    {{config.title}}
+    <section class="dashboard-section">
+        <ul class="form-field">
+            <li ng-repeat="obsGroup in observations">
+                <span class="obs-date"> {{obsGroup.conceptNameToDisplay }} </span>
+                <span class="obs-date"> {{obsGroup.value}} </span>
+            </li>
+        </ul>
+    </section>
 </div>
