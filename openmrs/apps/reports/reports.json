@@ -1,29 +1,4 @@
 {
-
-	"01 Reporting Status Dataset": {
-		"name": "01 Reporting Status Dataset",
-		"DHISProgram": true,
-		"type": "concatenated",
-		"config": {
-			"reports": [{
-					"name": "Reporting Status(New and Existing Clients)",
-					"type": "MRSGeneric",
-					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/01-Reporting_Status/new_and_existing_clients.sql"
-					}
-				},
-
-				{
-					"name": "Reporting Status (Referred Out Patients)",
-					"type": "MRSGeneric",
-					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/01-Reporting_Status/referred_out_patients_age_grp.sql"
-					}
-				}
-			]
-		}
-	},
-
 	"02-1 Immunization Dataset": {
 		"name": "02-1 Immunization Dataset",
 		"DHISProgram": true,
@@ -211,6 +186,7 @@
 			]
 		}
 	},
+
 	"06 Safe Motherhood Program": {
 		"name": "06 Safe Motherhood Program",
 		"DHISProgram": true,
@@ -317,31 +293,18 @@
 			]
 		}
 	},
-	"07 Family Planning Program": {
+
+		"07 Family Planning Program": {
 		"name": "07 Family Planning Program",
 		"DHISProgram": true,
 		"type": "concatenated",
 		"config": {
-			"reports": [{
-					"name": "Family Planning Program - Temporary FP methods (new users)",
+			"reports": [
+			{
+					"name": "Family Planning Program all temporary methods",
 					"type": "MRSGeneric",
 					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07-Family_Planning_Program/Family_Planning_Temporary_Method_New_Users.sql"
-					}
-				},
-				{
-					"name": "Family Planning Program - Temporary FP method (Existing users)",
-					"type": "MRSGeneric",
-					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07-Family_Planning_Program/Temporary_method_Existing_users_count.sql"
-					}
-				},
-
-				{
-					"name": "Family Planning Program - Temporary FP method (Defaulters)",
-					"type": "MRSGeneric",
-					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07-Family_Planning_Program/Defaulters_count.sql"
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07-Family_Planning_Program/Family_Planning_All_Temporary.sql"
 					}
 				},
 				{
@@ -351,7 +314,6 @@
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07-Family_Planning_Program/No_of_devices_used.sql"
 					}
 				},
-
 				{
 					"name": "Family Planning Program - Permanent FP method (New users)",
 					"type": "MRSGeneric",
@@ -388,6 +350,7 @@
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/09-Leprosy-Dataset/09_Total_patient_Count.sql"
 					}
 				},
+
 				{
 					"name": "Leprosy program total patient in this month",
 					"type": "MRSGeneric",
@@ -740,6 +703,7 @@
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_1_HIV_Testing_And_Counseling_Positive.sql"
 					}
 				},
+
 				{
 					"name": "HIV Prevention of Mother-To-Child Transmission (PMTCT) Dataset(Labour & Delivery and Postnatal)",
 					"type": "MRSGeneric",
@@ -761,6 +725,7 @@
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_2_Exposed_baby_live_births_ARV_Prophylaxis_ANC_visit_HIV_Positive_delivered_Postnatal_women_received_FP.sql"
 					}
 				},
+
 				{
 					"name": "HIV Exposed Baby- Early Infant Diagnosis (EID)",
 					"type": "MRSGeneric",
@@ -775,33 +740,25 @@
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_3_Total_Clients_Assessed_STI.sql"
 					}
 				},
-
-				{
-					"name": "STI Cases-by Syndromes",
-					"type": "MRSGeneric",
-					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_3_STI_Cases_ By_Syndromes.sql"
-					}
-				},
 				{
 					"name": "STI Cases-by Etiology",
 					"type": "MRSGeneric",
 					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_3_STI_Cases_ By_Etiology.sql"
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_3_STI_Cases_By_Etiology.sql"
 					}
 				},
 				{
 					"name": "STI Cases-by Sex Screened",
 					"type": "MRSGeneric",
 					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_3_STI_Cases_ By_Sex_Screened.sql"
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_3_STI_Cases_By_Sex_Screened.sql"
 					}
 				},
 				{
 					"name": "STI Cases-by Sex Treated",
 					"type": "MRSGeneric",
 					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_3_STI_Cases_ By_Sex_Treated.sql"
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_3_STI_Cases_By_Sex_Treated.sql"
 					}
 				},
 
@@ -812,6 +769,7 @@
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_3_Asymptomatic_Partners_Treated.sql"
 					}
 				},
+
 				{
 					"name": "HIV-AIDS Program Opportunistic Infections diagnosed",
 					"type": "MRSGeneric",
@@ -831,14 +789,6 @@
 					"type": "MRSGeneric",
 					"config": {
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_5_Opportunistic_Infection _TB_FP.sql"
-					}
-				},
-
-				{
-					"name": "HIV-AIDS Program Opportunistic Infection TB and FP(HIV Patients received CPT)",
-					"type": "MRSGeneric",
-					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_5_Opportunistic_Infection_TB_FP_HIV_Patients_Received_CPT.sql"
 					}
 				}
 
@@ -861,7 +811,7 @@
 			},
 			{
 				"name": "Gender Equity and Social Inclusion HIV AIDS",
-				"type": "MRSGeneric",
+				"type": "ElisGeneric",
 				"config": {
 					"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/14-Gender-Equity-and-Social-Inclusion/Gender_ Equity_and_Social_Inclusion_HIV.sql"
 				}
@@ -914,6 +864,7 @@
 			]
 		}
 	},
+
 	"15 OPD Programs(6-10)": {
 		"name": "15 OPD Programs(6-10)",
 		"DHISProgram": true,
@@ -958,6 +909,7 @@
 			]
 		}
 	},
+
 	"15 OPD Programs(11-15)": {
 		"name": "15 OPD Programs(11-15)",
 		"DHISProgram": true,
@@ -1102,6 +1054,7 @@
 			]
 		}
 	},
+
 	"17-2 Hospital Indoor Services Dataset": {
 		"name": "17-2 Hospital Indoor Services Dataset",
 		"DHISProgram": true,

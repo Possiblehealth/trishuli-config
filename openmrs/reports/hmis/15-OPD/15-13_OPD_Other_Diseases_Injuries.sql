@@ -64,7 +64,11 @@ FROM
         AND question.concept_full_name IN ('Department Sent To')
     INNER JOIN concept_name cn2 ON obs.value_coded = cn2.concept_id
         AND cn2.concept_name_type = 'FULLY_SPECIFIED'
+  AND UPPER(cn2.name) NOT Like '%EMERGENCY%'
+    INNER JOIN person ON obs.person_id = person.person_id
+    INNER JOIN encounter ON obs.encounter_id = encounter.encounter_id
     INNER JOIN visit ON encounter.visit_id = visit.visit_id
+    WHERE
         CAST(obs.obs_datetime AS DATE) BETWEEN DATE('#startDate#') AND DATE('#endDate#')) second_concept ON first_concept.person_id = second_concept.person_id
         AND first_concept.visit_id = second_concept.visit_id
 GROUP BY first_answers.icd10_code
