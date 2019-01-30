@@ -97,23 +97,31 @@
     </changeSet>
     <changeSet id="POSSIBLE-VIEWS-OBS-VIEW" author="tw" runOnChange="true">
         <sql>
-            create or replace view obs_view as
-            select
-            concept_view.*,
-            obs.obs_id as obs_id,
-            obs.value_text as value_text,
-            obs.value_datetime as value_datetime,
-            obs.value_numeric as value_numeric,
-            obs.value_coded as value_coded,
-            obs.value_boolean as value_boolean,
-            obs.obs_group_id as obs_group_id,
-            obs.person_id as person_id,
-            obs.encounter_id as encounter_id,
-            obs.obs_datetime as obs_datetime,
-            obs.voided as voided
-            from obs, concept_view
-            where
-            obs.concept_id = concept_view.concept_id;
+            create or replace view  obs_view AS
+			SELECT 
+				concept_view.concept_id AS concept_id,
+				concept_view.concept_full_name AS concept_full_name,
+				concept_view.concept_short_name AS concept_short_name,
+				concept_view.concept_class_name AS concept_class_name,
+				concept_view.concept_datatype_name AS concept_datatype_name,
+				concept_view.retired AS retired,
+				concept_view.description AS description,
+				concept_view.date_created AS date_created,
+				obs.obs_id AS obs_id,
+				obs.value_text AS value_text,
+				obs.value_datetime AS value_datetime,
+				obs.value_numeric AS value_numeric,
+				obs.value_coded AS value_coded,
+				obs.obs_group_id AS obs_group_id,
+				obs.person_id AS person_id,
+				obs.encounter_id AS encounter_id,
+				obs.obs_datetime AS obs_datetime,
+				obs.voided AS voided
+			FROM
+				(obs
+				JOIN concept_view)
+			WHERE
+				(obs.concept_id = concept_view.concept_id)
         </sql>
     </changeSet>
     <changeSet id="POSSIBLE-VIEWS-RADIOLOGY-VIEW" author="tw" runOnChange="true">
