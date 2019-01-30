@@ -7,7 +7,7 @@ CHANGE_LOG_TABLE="-Dliquibase.databaseChangeLogTableName=liquibasechangelog -Dli
 LIQUIBASE_JAR="/opt/openmrs/openmrs/WEB-INF/lib/liquibase-core-2.0.5.jar"
 DRIVER="com.mysql.jdbc.Driver"
 CLASSPATH=`ls /opt/openmrs/openmrs/WEB-INF/lib/mysql-connector-java-*.jar`
-CHANGE_LOG_FILE="bahmni-reports-liquibase.xml"
+CHANGE_LOG_FILE="liquibase.xml"
 
 if [  -f "/var/www/bahmni_config/openmrs/migrations/$CHANGE_LOG_FILE" ]; then
 cd /var/www/bahmni_config/openmrs/migrations
