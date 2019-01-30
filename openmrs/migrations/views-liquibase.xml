@@ -5,7 +5,10 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
-    <changeSet id="POSSIBLE-VIEWS-PATIENT-VIEW" author="tw" runOnChange="true">
+    
+	
+	
+	<changeSet id="POSSIBLE-VIEWS-PATIENT-VIEW" author="tw" runOnChange="true">
         <sql>
             create or replace view patient_view as
             select
@@ -190,4 +193,31 @@
             WHERE !observation.voided;
         </sql>
     </changeSet>
+	
+	<changeSet id="POSSIBLE-VIEWS-CODED-OBS-VIEW" author="Laxman" runOnChange="true">
+	 <sql>
+	 CREATE OR REPLACE
+		VIEW coded_obs_view AS
+			SELECT 
+				obs.obs_id AS obs_id,
+				obs.concept_id AS concept_id,
+				obs.person_id AS person_id,
+				obs.value_coded AS value_coded,
+				obs.obs_group_id AS obs_group_id,
+				obs.obs_datetime AS obs_datetime,
+				obs.encounter_id AS encounter_id,
+				obs.creator AS creator,
+				reference_concept.concept_full_name AS concept_full_name,
+				value_concept.concept_full_name AS value_concept_full_name,
+				obs.voided AS voided
+			FROM
+				((obs
+				JOIN concept_view reference_concept ON (((reference_concept.concept_id = obs.concept_id)
+					AND ((reference_concept.concept_datatype_name = 'Coded')
+					OR (reference_concept.concept_datatype_name = 'Boolean')))))
+				LEFT JOIN concept_view value_concept ON ((value_concept.concept_id = obs.value_coded)))
+	 
+	 </sql>
+    </changeSet>
+	
 </databaseChangeLog>
