@@ -10,7 +10,7 @@ from
   INNER JOIN concept_view AS answer ON answer.concept_id = concept_answer.answer_concept
   INNER JOIN (SELECT DISTINCT value_reference AS type FROM visit_attribute) visit_type 
   INNER JOIN reporting_age_group ON reporting_age_group.report_group_name = 'Inpatient'
-  INNER JOIN (SELECT 'M' as gender UNION SELECT 'F' AS gender UNION SELECT 'O' AS gender) as gender
+  INNER JOIN (SELECT 'M' as gender UNION SELECT 'F' AS gender) as gender
   LEFT OUTER JOIN (
     SELECT
       obs.value_coded as answer_concept_id,
@@ -26,8 +26,7 @@ from
       INNER  JOIN visit on encounter.visit_id = visit.visit_id
       INNER JOIN reporting_age_group on cast(obs.obs_datetime AS DATE) BETWEEN (DATE_ADD(DATE_ADD(person.birthdate, INTERVAL reporting_age_group.min_years YEAR), INTERVAL reporting_age_group.min_days DAY))
                                         AND (DATE_ADD(DATE_ADD(person.birthdate, INTERVAL reporting_age_group.max_years YEAR), INTERVAL reporting_age_group.max_days DAY))
-                                        AND reporting_age_group.report_group_name = "Inpatient Outcome"
-   -- WHERE CAST(visit.date_stopped  as DATE) BETWEEN "2016-02-01" and "2017-02-20"
+                                        AND reporting_age_group.report_group_name = "Inpatient"
    WHERE CAST(visit.date_stopped  as DATE) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
     group by obs.concept_id, obs.value_coded, reporting_age_group.name, person.gender
   ) result on question.concept_id = result.question_concept_id
@@ -35,4 +34,4 @@ from
               and gender.gender = result.gender
               and result.age_group = reporting_age_group.name
 GROUP BY question.concept_full_name, answer.concept_full_name, gender.gender, reporting_age_group.name
-ORDER BY answer.concept_full_name,reporting_age_group.sort_order;
+ORDER BY answer.concept_full_name,reporting_age_group.sort_order,gender.gender;

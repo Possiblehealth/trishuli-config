@@ -22,7 +22,7 @@ FROM
         INNER JOIN
     concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name IN ('Tuberculosis, With known HIV Infection')
+        AND cn1.name IN ('TB Intake-With known hiv status')
         AND o1.voided = 0
         AND cn1.voided = 0
         INNER JOIN
@@ -31,6 +31,4 @@ FROM
     person p1 ON o1.person_id = p1.person_id
     INNER JOIN visit v ON v.visit_id = e.visit_id
 WHERE
-      TIMESTAMPDIFF(MONTH, p1.birthdate, v.date_started) > 1
-         AND TIMESTAMPDIFF(MONTH, p1.birthdate, v.date_started) < 60
-    AND DATE(e.encounter_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
+  DATE(e.encounter_datetime) BETWEEN DATE('#startDate#') AND DATE('#endDate#')
