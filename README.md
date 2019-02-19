@@ -78,8 +78,8 @@ https://ci-bahmni.thoughtworks.com/go/files/Bahmni_MRS_Master/{Build_Number}/Bui
   "hideFields": ["Height", "Weight", "BMI", "BMI_Status"],  //the fields on screen which should NOT be shown
   "registrationCardPrintLayout": "/bahmni_config/openmrs/apps/registration/registrationCardLayout/print.html",
   "localNameSearch": true,                       // registration search displays parameter for search by local name
-  "localNameLabel": "मरीज़ का नाम",                // label to be diplyed for local name search input
-  "localNamePlaceholder": "मरीज़ का नाम",          // placeholder to be diplyed for local name search input
+  "localNameLabel": "बिरामीको नाम",                // label to be diplyed for local name search input
+  "localNamePlaceholder": "बिरामीको नाम",          // placeholder to be diplyed for local name search input
   "localNameAttributes": ["givenNameLocal", "familyNameLocal"]  //patient attributes to be search against for local name search
 }
 
