@@ -1,24 +1,26 @@
 'use strict';
+var displayControl = angular.module('bahmni.common.displaycontrol.custom');
+displayControl.directive('birthCertificates', ['$q', 'observationsService', 'appService', 'spinner', '$sce', function ($q, observationsService, appService, spinner, $sce) {
+    var link = function ($scope) {
+		var conceptNames = ["Delivery Note-Liveborn gender","Delivery Note-Liveborn weight","Delivery Note-Delivery date and time","Delivery Note-Name of Father"];
+		$scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/birthCertificate.html";
+		spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.patientUuid, undefined).then(function (response) {
+			$scope.observations = response.data;
+			$scope.data = {};
+			angular.forEach($scope.observations, function(obs,key){
+				$scope.data[obs.conceptNameToDisplay] = obs.valueAsString;
+			});
+		}));
+	};
 
-angular.module('bahmni.common.displaycontrol.custom')
-    .directive('birthCertificates', ['$q', 'observationsService', 'appService', 'spinner', '$sce', function ($q, observationsService, appService, spinner, $sce) {
-            var link = function ($scope) {
-                var conceptNames = ["Delivery Note-Liveborn gender","Delivery Note-Liveborn weight","Delivery Note-Delivery date and time","Delivery Note-Name of Father"];
-                $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/birthCertificate.html";
-                spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.patientUuid, undefined).then(function (response) {
-                    $scope.observations = response.data;
-                    $scope.data = {};
-                	  angular.forEach($scope.observations, function(obs,key){
-                        	$scope.data[obs.conceptNameToDisplay] = obs.valueAsString;
-                	 });
-                }));
-            };
-            return {
-                restrict: 'E',
-                template: '<ng-include src="contentUrl"/>',
-                link: link
-            }
-    }]).directive('deathCertificate', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
+	return {
+		restrict: 'E',
+		template: '<ng-include src="contentUrl"/>',
+		link: link
+	}
+}]);
+
+displayControl.directive('deathCertificate', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
         var link = function ($scope) {
             var conceptNames = ["WEIGHT"];
             $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/deathCertificate.html";
@@ -32,7 +34,9 @@ angular.module('bahmni.common.displaycontrol.custom')
             link: link,
             template: '<ng-include src="contentUrl"/>'
         }
-    }]).directive('customTreatmentChart', ['appService', 'treatmentConfig', 'TreatmentService', 'spinner', '$q', function (appService, treatmentConfig, treatmentService, spinner, $q) {
+}]);
+
+displayControl.directive('customTreatmentChart', ['appService', 'treatmentConfig', 'TreatmentService', 'spinner', '$q', function (appService, treatmentConfig, treatmentService, spinner, $q) {
         var link = function ($scope) {
             var Constants = Bahmni.Clinical.Constants;
             var days = [
@@ -156,7 +160,9 @@ angular.module('bahmni.common.displaycontrol.custom')
             },
             template: '<ng-include src="contentUrl"/>'
         }
-    }]).directive('patientAppointmentsDashboard', ['$http', '$q', '$window', 'appService', function ($http, $q, $window, appService) {
+}]);
+
+displayControl.directive('patientAppointmentsDashboard', ['$http', '$q', '$window', 'appService', function ($http, $q, $window, appService) {
         var link = function ($scope) {
             $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/patientAppointmentsDashboard.html";
             var getUpcomingAppointments = function () {
@@ -203,7 +209,9 @@ angular.module('bahmni.common.displaycontrol.custom')
             },
             template: '<ng-include src="contentUrl"/>'
         };
-    }]).directive('dischargeSummary', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
+}]);
+
+displayControl.directive('dischargeSummary', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
             var link = function ($scope) {
                 var conceptNames = [
                   "Discharge Note, Admission Date",
@@ -269,4 +277,32 @@ angular.module('bahmni.common.displaycontrol.custom')
                 template: '<ng-include src="contentUrl"/>',
                 link: link
             }
-    }]);
+}]);
+
+// Lab test list
+try {
+	var clinicalApp = angular.module('bahmni.clinical');
+	clinicalApp.directive('a', function () {
+		var link = function ($scope, element, attrs, ngModel) {
+			if(element.context.className === 'grid-row-element button orderBtn ng-binding ng-scope'){
+				if($scope.test.name.display.substring(0,19) == 'Lab Group Separator'){
+					element.removeClass('grid-row-element');
+					element.removeClass('buttonss');
+					element.removeAttr('ng-click');
+					element.attr('ng-disabled','1');
+					element.removeClass('orderBtn');
+					element.css('min-width','94%');
+					element.css('margin-bottom','10px');
+					element.css('border','none');
+					element.css('margin-left','0');
+					element.css('padding-left','0');
+					element.css('background','#ccc');
+					element.css('pointer-events','none');
+				}
+			}
+		};
+		return { link: link };
+	});
+} catch(e) {
+    console.log('App not initialized... [bahmni.clinical]');
+}

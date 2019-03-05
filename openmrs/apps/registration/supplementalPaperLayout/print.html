@@ -14,14 +14,21 @@
             </div>
 
             <div ng-switch on="patient.gender" class="row">
-                <span>
-                    ({{patient.age.years}},
+                (
+                <span ng-if="patient.age.years >= 1">
+                    {{patient.age.years}}Y,
+                </span>
+                <span ng-if="patient.age.years == 0 && patient.age.months >= 1">
+                    {{patient.age.months}}M,
+                </span>
+                <span ng-if="patient.age.years == 0 && patient.age.months == 0 && patient.age.days >= 1">
+                    {{patient.age.days}}D,
                 </span>
                 <span ng-switch-when="M">
-                    Male)
+                    Male )
                 </span>
                 <span ng-switch-when="F">
-                    Female)
+                    Female )
                 </span>
             </div>
 
