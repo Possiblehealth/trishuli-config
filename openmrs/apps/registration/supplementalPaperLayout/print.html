@@ -33,8 +33,8 @@
             </div>
 
             <div class="row">
-                <span id="reg_date">{{today | date:'dd/MM/yyyy hh:mm:ss a'}}</span>
-                <span id="np_date"></span>
+                <span id="np_date"></span><span> {{today | date:'hh:mm:ss a'}}</span>
+                (<span id="reg_date">{{today | date:'dd/MM/yyyy'}}</span>)
             </div>
 
             <div class="row">
@@ -58,7 +58,7 @@
     var converter = new DateConverter();
     //converter.setCurrentDate() // for the date of print
     converter.setEnglishDate(parseInt(regDate.substring(6,10)), parseInt(regDate.substring(3,5)), parseInt(regDate.substring(0,2)))  // for registration date
-    document.getElementById("np_date").innerHTML = "("+converter.getNepaliYear()+"/"+converter.getNepaliMonth()+"/"+converter.getNepaliDate()+")";
+    document.getElementById("np_date").innerHTML = converter.getNepaliYear()+"/"+converter.getNepaliMonth()+"/"+converter.getNepaliDate();
   }catch(err){
     //alert(err.message);
     document.getElementById("np_date").innerHTML = 'err';
