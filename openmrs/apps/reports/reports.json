@@ -1376,5 +1376,34 @@
 		"config": {
 			"sqlPath": "/var/www/bahmni_config/openmrs/reports/defaultersList.sql"
 		}
+	},
+	"special_report": {
+        "name": "Service Report",
+        "type": "concatenated",
+        "config": {
+			"reports":[
+				{
+					"name": "Delivery Note",
+					"type": "obsTemplate",
+					"config": {
+						"templateName": "Delivery Note"
+					}
+				},
+				{
+					"name": "Operative Notes",
+					"type": "obsTemplate",
+					"config": {
+						"templateName": "Operative Notes"
+					}
+				},
+				{
+					"name": "Procedure Notes",
+					"type": "obsTemplate",
+					"config": {
+						"templateName": "Procedure Notes"
+					}
+				}
+			]
+        }
 	}
 }
