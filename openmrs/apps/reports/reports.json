@@ -1,4 +1,29 @@
 {
+
+	"01 Reporting Status Dataset": {
+		"name": "01 Reporting Status Dataset",
+		"DHISProgram": true,
+		"type": "concatenated",
+		"config": {
+			"reports": [{
+					"name": "Reporting Status(New and Existing Clients)",
+					"type": "MRSGeneric",
+					"config": {
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/01-Reporting_Status/new_and_existing_clients.sql"
+					}
+				},
+
+				{
+					"name": "Reporting Status (Referred Out Patients)",
+					"type": "MRSGeneric",
+					"config": {
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/01-Reporting_Status/referred_out_patients_age_grp.sql"
+					}
+				}
+			]
+		}
+	},
+
 	"02-1 Immunization Dataset": {
 		"name": "02-1 Immunization Dataset",
 		"DHISProgram": true,
@@ -293,45 +318,47 @@
 			]
 		}
 	},
-	"07-Family Planning Program": {
+
+		"07-Family Planning Program": {
 		"name": "07-Family Planning Program",
 		"DHISProgram": true,
 		"type": "concatenated",
 		"config": {
+
 			"reports": [
 			{
 					"name": "Family Planning Program all temporary methods",
 					"type": "MRSGeneric",
 					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07_Family_Planning_Program/Family_Planning_All_Temporary.sql"
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07-Family_Planning_Program/Family_Planning_All_Temporary.sql"
 					}
 				},
 				{
 					"name": "Family Planning Program - Temporary FP method (No of devices used)",
 					"type": "MRSGeneric",
 					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07_Family_Planning_Program/No_of_devices_used.sql"
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07-Family_Planning_Program/No_of_devices_used.sql"
 					}
 				},
 				{
 					"name": "Family Planning Program - Permanent FP method (New users)",
 					"type": "MRSGeneric",
 					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07_Family_Planning_Program/Family_Planning_Program_Permanent_Method_New_User_Count.sql"
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07-Family_Planning_Program/Family_Planning_Program_Permanent_Method_New_User_Count.sql"
 					}
 				},
 				{
 					"name": "Family Planning Program - Permanent FP method (Existing users)",
 					"type": "MRSGeneric",
 					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07_Family_Planning_Program/Permanent_method_existing_users_count_method.sql"
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07-Family_Planning_Program/Permanent_method_existing_users_count_method.sql"
 					}
 				},
 				{
 					"name": "Family Planning Program - Postpartum FP Acceptors",
 					"type": "MRSGeneric",
 					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07_Family_Planning_Program/Family_Planning_Program_Postpartum_Within_48hrs_Count.sql"
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/07-Family_Planning_Program/Family_Planning_Program_Postpartum_Within_48hrs_Count.sql"
 					}
 				}
 			]
@@ -747,6 +774,13 @@
 					}
 				},
 				{
+					"name": "STI Cases-by Syndromes",
+					"type": "MRSGeneric",
+					"config": {
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_3_STI_Cases_ By_Syndromes.sql"
+					}
+				},
+				{
 					"name": "STI Cases-by Etiology",
 					"type": "MRSGeneric",
 					"config": {
@@ -796,6 +830,13 @@
 					"config": {
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_5_Opportunistic_Infection _TB_FP.sql"
 					}
+				},
+				{
+					"name": "HIV-AIDS Program Opportunistic Infection - TB and FP(HIV Patients received CPT)",
+					"type": "MRSGeneric",
+					"config": {
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/13-HIV_AIDS/13_5_Opportunistic_Infection_TB_FP_HIV_Patients_Received_CPT.sql"
+					}
 				}
 
 
@@ -817,7 +858,7 @@
 			},
 			{
 				"name": "Gender Equity and Social Inclusion HIV AIDS",
-				"type": "ElisGeneric",
+				"type": "MRSGeneric",
 				"config": {
 					"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/14-Gender-Equity-and-Social-Inclusion/Gender_ Equity_and_Social_Inclusion_HIV.sql"
 				}
@@ -968,7 +1009,7 @@
 					"name": "OPD Surgical Problems(Total and New OPD)",
 					"type": "MRSGeneric",
 					"config": {
-						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/15-OPD/15-15_Surgical_Problem_Total _OPD_New_Old.sql"
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/15-OPD/15-15_Surgical_Problem_Total_OPD_New_Old.sql"
 					}
 				}
 			]
@@ -1081,6 +1122,13 @@
 					}
 				},
 				{
+					"name": "Summary of Indoor Services Inpatient Outcome DOR LAMA DAMA",
+					"type": "MRSGeneric",
+					"config": {
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/17-2-Hospital_Indoor_Services_Dataset/inpatient_outcome_DOR_LAMA_DAMA.sql"
+					}
+				},
+				{
 					"name": "Summary of Indoor Services Gestational weeks(Neonate Form)",
 					"type": "MRSGeneric",
 					"config": {
@@ -1092,6 +1140,14 @@
 					"type": "MRSGeneric",
 					"config": {
 						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/17-2-Hospital_Indoor_Services_Dataset/gestational_weeks_maternal_age.sql"
+					}
+				},
+
+				{
+					"name": "Summary of Indoor Services Inpatient Outcome Referred Out",
+					"type": "MRSGeneric",
+					"config": {
+						"sqlPath": "/var/www/bahmni_config/openmrs/reports/hmis/17-2-Hospital_Indoor_Services_Dataset/inpatient_referredout.sql"
 					}
 				},
 
@@ -1383,34 +1439,5 @@
 		"config": {
 			"sqlPath": "/var/www/bahmni_config/openmrs/reports/defaultersList.sql"
 		}
-	},
-	"special_report": {
-        "name": "Service Report",
-        "type": "concatenated",
-        "config": {
-			"reports":[
-				{
-					"name": "Delivery Note",
-					"type": "obsTemplate",
-					"config": {
-						"templateName": "Delivery Note"
-					}
-				},
-				{
-					"name": "Operative Notes",
-					"type": "obsTemplate",
-					"config": {
-						"templateName": "Operative Notes"
-					}
-				},
-				{
-					"name": "Procedure Notes",
-					"type": "obsTemplate",
-					"config": {
-						"templateName": "Procedure Notes"
-					}
-				}
-			]
-        }
 	}
 }

@@ -6,7 +6,7 @@
         <div class="left">
 
             <div class="row">
-				<span><b>{{patient.primaryIdentifier.identifier}}</b></span>
+                <span><b>{{patient.primaryIdentifier.identifier}}</b></span>
             </div>
 
             <div class="row">
@@ -14,27 +14,19 @@
             </div>
 
             <div ng-switch on="patient.gender" class="row">
-                (
-                <span ng-if="patient.age.years >= 1">
-                    {{patient.age.years}}Y,
-                </span>
-                <span ng-if="patient.age.years == 0 && patient.age.months >= 1">
-                    {{patient.age.months}}M,
-                </span>
-                <span ng-if="patient.age.years == 0 && patient.age.months == 0 && patient.age.days >= 1">
-                    {{patient.age.days}}D,
+                <span>
+                    ({{patient.age.years}},
                 </span>
                 <span ng-switch-when="M">
-                    Male )
+                    Male)
                 </span>
                 <span ng-switch-when="F">
-                    Female )
+                    Female)
                 </span>
             </div>
 
             <div class="row">
-                <span id="np_date"></span><span> {{today | date:'hh:mm:ss a'}}</span>
-                (<span id="reg_date">{{today | date:'dd/MM/yyyy'}}</span>)
+                <span>{{patient.registrationDate | date:'dd/MM/yyyy hh:mm:ss a'}}</span>
             </div>
 
             <div class="row">
@@ -44,23 +36,8 @@
             </div>
 
             <div class="row dept">
-				<span>{{obs['Department Sent To'][0].displayString}}</span>   
-			</div>
+                <span>{{obs['Department Sent To'][0].value}}</span>
+            </div>
         </div>
     </div>
 </div>
-<script type="text/javascript">
-  function DateConverter(){this.englishMonths=[31,28,31,30,31,30,31,31,30,31,30,31],this.englishLeapMonths=[31,29,31,30,31,30,31,31,30,31,30,31],this.nepaliMonths=[[30,32,31,32,31,30,30,30,29,30,29,31],[31,31,32,31,31,31,30,29,30,29,30,30],[31,31,32,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[30,32,31,32,31,30,30,30,29,30,29,31],[31,31,32,31,31,31,30,29,30,29,30,30],[31,31,32,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[31,31,31,32,31,31,29,30,30,29,29,31],[31,31,32,31,31,31,30,29,30,29,30,30],[31,31,32,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[31,31,31,32,31,31,29,30,30,29,30,30],[31,31,32,31,31,31,30,29,30,29,30,30],[31,31,32,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[31,31,31,32,31,31,29,30,30,29,30,30],[31,31,32,31,31,31,30,29,30,29,30,30],[31,32,31,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,30,29,31],[31,31,31,32,31,31,30,29,30,29,30,30],[31,31,32,31,31,31,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,30],[31,32,31,32,31,30,30,30,29,30,29,31],[31,31,31,32,31,31,30,29,30,29,30,30],[31,31,32,31,31,31,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[30,32,31,32,31,30,30,30,29,30,29,31],[31,31,32,31,31,31,30,29,30,29,30,30],[31,31,32,31,32,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[30,32,31,32,31,30,30,30,29,30,29,31],[31,31,32,31,31,31,30,29,30,29,30,30],[31,31,32,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[30,32,31,32,31,31,29,30,30,29,29,31],[31,31,32,31,31,31,30,29,30,29,30,30],[31,31,32,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[31,31,31,32,31,31,29,30,30,29,30,30],[31,31,32,31,31,31,30,29,30,29,30,30],[31,31,32,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[31,31,31,32,31,31,29,30,30,29,30,30],[31,31,32,31,31,31,30,29,30,29,30,30],[31,32,31,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[31,31,31,32,31,31,30,29,30,29,30,30],[31,31,32,31,31,31,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,30],[31,32,31,32,31,30,30,30,29,30,29,31],[31,31,31,32,31,31,30,29,30,29,30,30],[31,31,32,31,31,31,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,30],[31,32,31,32,31,30,30,30,29,30,29,31],[31,31,32,31,31,31,30,29,30,29,30,30],[31,31,32,31,32,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[30,32,31,32,31,30,30,30,29,30,29,31],[31,31,32,31,31,31,30,29,30,29,30,30],[31,31,32,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[30,32,31,32,31,31,29,30,29,30,29,31],[31,31,32,31,31,31,30,29,30,29,30,30],[31,31,32,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[31,31,31,32,31,31,29,30,30,29,29,31],[31,31,32,31,31,31,30,29,30,29,30,30],[31,31,32,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[31,31,31,32,31,31,29,30,30,29,30,30],[31,31,32,31,31,31,30,29,30,29,30,30],[31,32,31,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,31],[31,31,31,32,31,31,30,29,30,29,30,30],[31,31,32,31,31,31,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,30],[31,32,31,32,31,30,30,30,29,30,29,31],[31,31,31,32,31,31,30,29,30,29,30,30],[31,31,32,31,31,31,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,29,30,30],[31,31,32,32,31,30,30,30,29,30,30,30],[30,32,31,32,31,30,30,30,29,30,30,30],[31,31,32,31,31,30,30,30,29,30,30,30],[31,31,32,31,31,30,30,30,29,30,30,30],[31,32,31,32,30,31,30,30,29,30,30,30],[30,32,31,32,31,30,30,30,29,30,30,30],[31,31,32,31,31,31,30,30,29,30,30,30],[30,31,32,32,30,31,30,30,29,30,30,30],[30,32,31,32,31,30,30,30,29,30,30,30],[30,32,31,32,31,30,30,30,29,30,30,30],[31,31,32,31,31,31,30,30,29,30,30,30],[30,31,32,32,31,30,30,30,29,30,30,30],[30,32,31,32,31,30,30,30,29,30,30,30],[31,31,32,31,31,30,30,30,29,30,30,30],[31,31,32,31,31,31,30,29,30,30,30,30],[30,31,32,32,31,30,30,29,30,29,30,30],[31,32,31,32,31,30,30,30,29,30,30,30],[31,31,32,31,31,31,29,30,29,30,29,31],[31,31,32,31,31,31,30,29,29,30,30,30]],this.setCurrentDate=function(){var t=new Date;this.setEnglishDate(t.getFullYear(),t.getMonth()+1,t.getDate())},this.setEnglishDate=function(t,i,e){if(!this.isEnglishRange(t,i,e))throw new Exception("Invalid date format.");this.englishYear=t,this.englishMonth=i,this.englishDate=e,this.nepaliYear=2e3,this.nepaliMonth=1,this.nepaliDate=1;for(var n=this.getEnglishDateDifference(1943,4,14),s=0;n>=this.nepaliYearDays(s);)this.nepaliYear++,n-=this.nepaliYearDays(s),s++;for(var h=0;n>=this.nepaliMonths[s][h];)n-=this.nepaliMonths[s][h],this.nepaliMonth++,h++;this.nepaliDate=this.nepaliDate+n,this.getDay()},this.toEnglishString=function(t){return void 0===t&&(t="-"),this.englishYear+t+this.englishMonth+t+this.englishDate},this.getEnglishDateDifference=function(t,i,e){var n=this.countTotalEnglishDays(this.englishYear,this.englishMonth,this.englishDate)-this.countTotalEnglishDays(t,i,e);return n<0?-n:n},this.countTotalEnglishDays=function(t,i,e){for(var n=365*t+e,s=0;s<i-1;s++)n+=this.englishMonths[s];return n+=this.countleap(t,i)},this.countleap=function(t,i){return i<=2&&t--,Math.floor(t/4)-Math.floor(t/100)+Math.floor(t/400)},this.isEnglishRange=function(t,i,e){return!(t<1944||t>2042)&&(!(i<1||i>12)&&!(e<1||e>31))},this.isLeapYear=function(t){return t%4==0&&(t%100!=0||t%400==0)},this.setNepaliDate=function(t,i,e){if(!this.isNepaliRange(t,i,e))throw new Exception("Invalid date format.");this.nepaliYear=t,this.nepaliMonth=i,this.nepaliDate=e,this.englishYear=1944,this.englishMonth=1,this.englishDate=1;for(var n=this.getNepaliDateDifference(2e3,9,17);n>=(this.isLeapYear(this.englishYear)?366:365);)n-=this.isLeapYear(this.englishYear)?366:365,this.englishYear++;for(var s=this.isLeapYear(this.englishYear)?this.englishLeapMonths:this.englishMonths,h=0;n>=s[h];)this.englishMonth++,n-=s[h],h++;this.englishDate=this.englishDate+n,this.getDay()},this.toNepaliString=function(t){return void 0===t&&(t="-"),this.nepaliYear+t+this.nepaliMonth+t+this.nepaliDate},this.getNepaliDateDifference=function(t,i,e){var n=this.countTotalNepaliDays(this.nepaliYear,this.nepaliMonth,this.nepaliDate)-this.countTotalNepaliDays(t,i,e);return n<0?-n:n},this.countTotalNepaliDays=function(t,i,e){var n=0;if(t<2e3)return 0;n+=e-1;for(var s=t-2e3,h=0;h<i-1;h++)n+=this.nepaliMonths[s][h];for(h=0;h<s;h++)n+=this.nepaliYearDays(h);return n},this.nepaliYearDays=function(t){for(var i=0,e=0;e<12;e++)i+=this.nepaliMonths[t][e];return i},this.isNepaliRange=function(t,i,e){return!(t<2e3||t>2098)&&(!(i<1||i>12)&&!(e<1||e>this.nepaliMonths[t-2e3][i-1]))},this.getDay=function(){var t=this.getEnglishDateDifference(1943,4,14);return this.weekDay=(3+t%7)%7+1,this.weekDay},this.getEnglishYear=function(){return this.englishYear},this.getEnglishMonth=function(){return this.englishMonth},this.getEnglishDate=function(){return this.englishDate},this.getNepaliYear=function(){return this.nepaliYear},this.getNepaliMonth=function(){return this.nepaliMonth},this.getNepaliDate=function(){return this.nepaliDate}}
-</script>
-<script type="text/javascript">
-  var regDate = document.getElementById("reg_date").innerHTML;
-  try{
-    var converter = new DateConverter();
-    //converter.setCurrentDate() // for the date of print
-    converter.setEnglishDate(parseInt(regDate.substring(6,10)), parseInt(regDate.substring(3,5)), parseInt(regDate.substring(0,2)))  // for registration date
-    document.getElementById("np_date").innerHTML = converter.getNepaliYear()+"/"+converter.getNepaliMonth()+"/"+converter.getNepaliDate();
-  }catch(err){
-    //alert(err.message);
-    document.getElementById("np_date").innerHTML = 'err';
-  }
-</script>

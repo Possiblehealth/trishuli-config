@@ -4,9 +4,9 @@
         "displayByDefault": true,
         "maxRecentlyViewedPatients": 10,
         "printing": {
-            "title": "District Trishuli Hospital",
-            "header": "Visit Summary",
-            "logo": "../images/trishuli-logo.jpg"
+            "title": "Trishuli Hospital",
+            "header": "General Summary",
+            "logo": "../images/nhn-logo.png"
         },
         "sections": {
             "patientInformation": {
@@ -490,7 +490,7 @@
     "motherhood": {
         "dashboardName": "Motherhood",
         "printing": {
-            "title": "Trishuli Hospital",
+            "title": "Bayalpata Hospital",
             "header": "Motherhood Summary",
             "logo": "../images/nhn-logo.png"
         },

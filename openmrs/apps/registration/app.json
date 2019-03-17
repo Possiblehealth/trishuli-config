@@ -32,9 +32,8 @@
         "defaultVisitType": "General",
         "conceptSetUI": {
             "Department Sent To": {
-                "required": true,
-                "dropdown": true,
-				"autocomplete":true
+                "required": false,
+                "dropdown": true
             },
             "Hospitals, Referred by, Data": {
                 "autocomplete": true,

@@ -29,7 +29,7 @@ FROM
         AND answer_concept_short_name.voided
         IS FALSE
     WHERE
-        question_concept_name.name = 'STI-Risk Group'
+        question_concept_name.name = 'STI, Risk Group'
             AND cd.name = 'Coded') first_answers
         INNER JOIN
     (SELECT 
@@ -66,7 +66,7 @@ FROM
         obs o1
     INNER JOIN concept_name cn1 ON o1.concept_id = cn1.concept_id
         AND cn1.concept_name_type = 'FULLY_SPECIFIED'
-        AND cn1.name = 'STI-Risk Group'
+        AND cn1.name = 'STI, Risk Group'
         AND o1.voided = 0
         AND cn1.voided = 0
     INNER JOIN concept_name cn2 ON o1.value_coded = cn2.concept_id
