@@ -22,7 +22,7 @@ For Bahmni, CentOS 6.x 64 bit is the recommended & tested platform
 <p>
 <b>OR, follow the steps after the installation</b>
 
-	Restore the openmrs database
+Restore the openmrs database
 <pre>
 mysql -uroot openmrs &lt; openmrs_sql_dump_file]
 </pre>
@@ -30,13 +30,13 @@ mysql -uroot openmrs &lt; openmrs_sql_dump_file]
 <pre>
 psql -Uclinlims %lt; clinlims_sql_dump_file
 </pre>
-	Restore the openerp database
+Restore the openerp database
 <pre>
 psql -Uopenerp &lt; openerp_sql_dump_file
 </pre>
-	Restore any other databases if required
+Restore any other databases if required
     
-	Replace the content of /opt/bahmni-web/etc/bahmni_config/ with the contents of trishuli_config (or any previous config directory)
+Replace the content of /opt/bahmni-web/etc/bahmni_config/ with the contents of trishuli_config (or any previous config directory)
 
 ### Step 4: Setup Installation variables
 * Get the sample setup.yml file
