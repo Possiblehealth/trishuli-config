@@ -1,7 +1,11 @@
 # trishuli-config
 Implementation Configuration for District Trishuli Hospital Nuwakot
 
-#### [Wiki](docs/Wiki.md#wiki)
+#### Wiki
+- [Installation Instructions](https://github.com/Possiblehealth/trishuli-config/blob/master/docs/Installation%20Instructions.md)
+- [DHIS2 integration](https://github.com/Possiblehealth/trishuli-config/blob/master/docs/DHIS2_Integration.md)
+- [Integration with Care Stream](https://github.com/Possiblehealth/trishuli-config/blob/master/docs/Integration_with_Care_Stream.md)
+- [Trishuli Deployment Details](https://github.com/Possiblehealth/trishuli-config/blob/master/docs/Trishuli_Deployment_Details.md)
 
 
 ## Default Bahmni configuration and data. 
