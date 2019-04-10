@@ -26,7 +26,7 @@ Restore the openmrs database
 <pre>
 mysql -uroot openmrs &lt; openmrs_sql_dump_file]
 </pre>
-	Restore the clinlims database
+Restore the clinlims database
 <pre>
 psql -Uclinlims %lt; clinlims_sql_dump_file
 </pre>
