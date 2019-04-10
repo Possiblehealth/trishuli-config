@@ -1,5 +1,6 @@
 'use strict';
 var displayControl = angular.module('bahmni.common.displaycontrol.custom');
+
 displayControl.directive('birthCertificates', ['$q', 'observationsService', 'appService', 'spinner', '$sce', function ($q, observationsService, appService, spinner, $sce) {
     var link = function ($scope) {
 		var conceptNames = ["Delivery Note-Liveborn gender","Delivery Note-Liveborn weight","Delivery Note-Delivery date and time","Delivery Note-Name of Father"];
